@@ -42,13 +42,13 @@ if($user=="")
                  
                 //update cname and image
                 //$fnn=rand().$imgg;
-                if(file_exists("../oswal/admin/update/".$fn)){
+                if(file_exists("update_img/".$fn)){
                     echo "<script> alert ('already exist')</script>";
                 }
                 else {
                     if(mysqli_query($link,"insert into LatestUpdate (body,image,user_id)values('$activity','$fn','$userID')"))
                     {
-                        move_uploaded_file($_FILES['imgg']['tmp_name'],'../oswal/admin/update/'.$fn);
+                        move_uploaded_file($_FILES['imgg']['tmp_name'],'update_img/'.$fn);
                         echo "<script> alert ('Event updated Successfully')</script>";
                     }
               
@@ -78,9 +78,7 @@ include('sidebar.php');
         <main class="main--container">
             <!-- Main Content Start -->
             <section class='main-content'>
-                <form method='post'>
-                    
-                </form>
+                
             </section>
             
             <section class='main-content'>
@@ -131,7 +129,7 @@ include('sidebar.php');
                         
                         $sql = "SELECT * FROM LatestUpdate WHERE user_id='$userID' ORDER BY id DESC"; 
                         $result = $link->query($sql);
-                        $res=mysqli_fetch_array($sth);
+                        /*$res=mysqli_fetch_array($sth);*/
                         
                         
                         if($result-> num_rows > 0){
@@ -157,7 +155,7 @@ include('sidebar.php');
                                     if($rows['image']!=""){
                                     ?>
                                     <div class="activity__list__body entry-content">
-                                        <a href='../oswal/admin/update/<?=$rows['image'];?>'><img style='width:400px;height:400px' src='../oswal/admin/update/<?=$rows['image'];?>'></a>
+                                        <a href='update_img/<?=$rows['image'];?>'><img style='width:400px;height:400px' src='update_img/<?=$rows["image"];?>'></a>
                                             
                                     </div>
                                     <?php    
@@ -169,7 +167,7 @@ include('sidebar.php');
                                             <a href="#"><i class="far fa-comments"></i>23</a>
                                             <a onclick="return confirm('Are you sure you want to edit this item?');" href='edit.php?editid=<?=$rows['id'];?>' ><i class="fas fa-edit" aria-hidden="true"></i></a>
                                             <a onclick="return confirm('Are you sure you want to delete this item?');" href='delete_update.php?delid=<?=$rows['id'];?>' ><i class="fa fa-trash"></i></a>
-                                            <span><i class="far fa-clock"></i><?=date("h:m,d-m-Y",$rows['tym'])?></span>
+                                            <span><i class="far fa-clock"></i><?=$rows['tym']?></span>
                                         </div>
                                     </li>
 

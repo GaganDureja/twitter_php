@@ -1,7 +1,7 @@
 <?php
     
     if(isset($_POST['submit'])){
-        $to = "mail@mail.com"; // this is your Email address
+        $to = "gagandureja675@gmail.com"; // this is your Email address
         $first_name = $_POST['name'];    
         $from = $_POST['email']; // this is the sender's Email address
         $message_subject = $_POST['subject'];
@@ -15,7 +15,7 @@
         mail($from,$message_subject2,$message2);
         
         
-       echo"<script>alert('Thanks for the query! We will Contact you Soon'); window.location=('../index.php');</script>";
+       echo"<script>alert('Thanks for the Message! We will Contact you Soon'); window.location=('../index.php');</script>";
         
         
         
@@ -106,7 +106,7 @@
                                     
                                     <div class="form-group">
                                         <label for='admin_receiver'>To:</label>
-                                        <input name='admin_receiver' type="email" placeholder="To:" class="form-control" value='mail@mail.com' disabled>
+                                        <input name='admin_receiver' type="email" placeholder="To:" class="form-control" value='gagandureja675@gmail.com' disabled>
                                     </div>
                                     
                                     <div class="form-group">

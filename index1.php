@@ -121,7 +121,7 @@ include('sidebar.php');
                         
                         $sql = "SELECT * FROM LatestUpdate ORDER BY id DESC"; 
                         $result = $link->query($sql);
-                        $res=mysqli_fetch_array($sth);
+                        /*$res=mysqli_fetch_array($sth);*/
                         
                         
                         if($result-> num_rows > 0){
@@ -164,7 +164,7 @@ include('sidebar.php');
                                         <div class="activity__list__footer">
                                             <a href="#"><i class="far fa-thumbs-up"></i>123</a>
                                             <a href="#"><i class="far fa-comments"></i>23</a>
-                                            <span><i class="far fa-clock"></i><?=date("h:m,d-m-Y",$rows['tym'])?></span>
+                                            <span><i class="far fa-clock"></i><?=$rows['tym']?></span>
                                         </div>
                                     </li>
 
