@@ -71,8 +71,12 @@ include('navbar.php');
 include('sidebar.php');
 ?>
 
-   
-
+  <!-- Page Level Stylesheets -->
+    <link rel="stylesheet" href="admin/assets/css/sweetalert.min.css">
+    <link rel="stylesheet" href="admin/assets/css/sweetalert-overrides.css"> 
+        <button data-sweet-alert="error" id="fail" hidden></button>
+        <button data-sweet-alert="success" id="sucs" hidden></button>
+        
         <!-- Main Container Start -->
         <main class="main--container">
             <!-- Main Content Start -->
@@ -113,6 +117,8 @@ include('sidebar.php');
                             </div>
             </section>
             <section class="main--content">
+                
+               
                 <?php
                         
                         
@@ -186,7 +192,13 @@ include('sidebar.php');
                       ?>
             </section>
             <!-- Main Content End -->
-
+            <!-- Scripts -->
+    <script src="admin/assets/js/jquery.min.js"></script>
+    
+    
+<!-- Page Level Scripts -->
+    <script src="admin/assets/js/sweetalert.min.js"></script>
+    <script src="admin/assets/js/sweetalert-init.js"></script>
 <?php
 include('footer.php');
 ?>
