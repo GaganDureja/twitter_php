@@ -1,6 +1,6 @@
 <?php
 
-$link=mysqli_connect("localhost","qtcincca_admin1","x=bSHc1m&-DU","qtcincca_admin");
+$link=mysqli_connect("localhost","admin","gagan2535","twitter");
 
 
 if ($link -> connect_errno) {

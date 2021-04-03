@@ -40,13 +40,13 @@ if($user=="")
                  
                 //update cname and image
                 //$fnn=rand().$imgg;
-                if(file_exists("../oswal/admin/update/".$fn)){
+                if(file_exists("update_img/".$fn)){
                     echo "<script> alert ('already exist')</script>";
                 }
                 else {
                     if(mysqli_query($link,"insert into LatestUpdate (body,image,user_id)values('$activity','$fn','$userID')"))
                     {
-                        move_uploaded_file($_FILES['imgg']['tmp_name'],'../oswal/admin/update/'.$fn);
+                        move_uploaded_file($_FILES['imgg']['tmp_name'],'update_img/'.$fn);
                         echo "<script> alert ('Event updated Successfully')</script>";
                     }
               
@@ -152,7 +152,7 @@ include('sidebar.php');
                                     if($rows['image']!=""){
                                     ?>
                                     <div class="activity__list__body entry-content">
-                                        <a href='../oswal/admin/update/<?=$rows['image'];?>'><img style='width:400px;height:400px' src='../oswal/admin/update/<?=$rows['image'];?>'></a>
+                                        <a href='update_img/<?=$rows['image'];?>'><img style='width:400px;height:400px' src='update_img/<?=$rows['image'];?>'></a>
                                             
                                     </div>
                                     <?php    
