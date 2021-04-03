@@ -51,9 +51,13 @@ if($user=="")
                 }
                 else {
                     if(mysqli_query($link,"update LatestUpdate set body='$activity',image='$fn',user_id='$userID' where id='$rollno'"))
-                    {
-                        move_uploaded_file($_FILES['imgg']['tmp_name'],'update_img/'.$fn);
-                        echo "<script> alert ('Event updated Successfully')</script>";
+                    {   
+                        if(move_uploaded_file($_FILES['imgg']['tmp_name'],'update_img/'.$fn)){
+                            echo "<script> alert ('Image updated Successfully')</script>";
+                        }else{
+                            echo "<script> alert ('No Successfully')</script>";
+                        }
+                        
                     }
               
                  // unlink('update/'.$himg);
@@ -82,9 +86,7 @@ include('sidebar.php');
         <main class="main--container">
             <!-- Main Content Start -->
             <section class='main-content'>
-                <form method='post'>
-                    
-                </form>
+                
             </section>
             
             <section class='main-content'>
@@ -98,7 +100,7 @@ include('sidebar.php');
                         
                         $sql = "SELECT * FROM LatestUpdate WHERE user_id='$userID' and id=$rollno"; 
                         $result = $link->query($sql);
-                        $res=mysqli_fetch_array($sth);
+                        /*$res=mysqli_fetch_array($sth);*/
                         
                         
                         if($result-> num_rows > 0){
@@ -157,7 +159,7 @@ include('sidebar.php');
                                             <a href="#"><i class="far fa-comments"></i>23</a>
                                             <a onclick="return confirm('Are you sure you want to edit this item?');" href='edit.php?editid=<?=$rows['id'];?>' ><i class="fas fa-edit" aria-hidden="true"></i></a>
                                             <a onclick="return confirm('Are you sure you want to delete this item?');" href='delete_update.php?delid=<?=$rows['id'];?>' ><i class="fa fa-trash"></i></a>
-                                            <span><i class="far fa-clock"></i><?=date("h:m,d-m-Y",$rows['tym'])?></span>
+                                            <span><i class="far fa-clock"></i><?=$rows['tym']?></span>
                                         </div>
                                     </li>
 
